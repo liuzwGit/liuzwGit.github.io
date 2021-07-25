@@ -588,7 +588,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-分段机制"><a href="#1-分段机制" class="headerlink" title="1. 分段机制"></a>1. <strong>分段机制</strong></h2><p><img src="%E5%88%86%E6%AE%B5%E6%9C%BA%E5%88%B6.png" alt="分段机制"></p>
+                <h2 id="1-分段机制"><a href="#1-分段机制" class="headerlink" title="1.分段机制"></a>1.分段机制</h2><p><img src="%E5%88%86%E6%AE%B5%E6%9C%BA%E5%88%B6.png" alt="分段机制"></p>
 <p>&emsp;&emsp;<strong>分段</strong>(Segmentation)：是人们最开始使用的一种方法，基本思路是将程序所需要的内存地址空间大小的虚拟空间映射到某个物理地址空间。</p>
 <p>&emsp;&emsp;每个程序都有其独立的虚拟的独立的进程地址空间，可以看到程序A和B的虚拟地址空间都是从0x00000000开始的。将两块大小相同的虚拟地址空间和实际物理地址空间一一映射，即虚拟地址空间中的每个字节对应于实际地址空间中的每个字节，这个映射过程由软件来设置映射的机制，实际的转换由硬件来完成。</p>
 <p>&emsp;&emsp;这种分段的机制解决了之前提到的3个问题中的进程地址空间隔离和程序地址重定位的问题。</p>
@@ -685,7 +685,7 @@
 </tr>
 </tbody></table>
 <p>&emsp;&emsp;因此，几乎所有RISC体系结构的处理器都不支持分段机制，而只采用了分页机制。所以，linux为了移植性和简化内存管理（共享一组线性地址），只在80x86结构下才使用分段机制。这就是为什么linux没有线性地址，而只有虚拟地址和物理地址的原因。</p>
-<h2 id="2-分页机制"><a href="#2-分页机制" class="headerlink" title="2. 分页机制"></a>2. <strong>分页机制</strong></h2><p>&emsp;&emsp;<strong>分页</strong>机制：把内存地址空间分为若干个很小的固定大小的页，每一页的大小由内存决定，就像Linux中ext文件系统将磁盘分成若干个Block一样，这样做是分别是为了提高内存和磁盘的利用率。</p>
+<h2 id="2-分页机制"><a href="#2-分页机制" class="headerlink" title="2.分页机制"></a>2.分页机制</h2><p>&emsp;&emsp;<strong>分页</strong>机制：把内存地址空间分为若干个很小的固定大小的页，每一页的大小由内存决定，就像Linux中ext文件系统将磁盘分成若干个Block一样，这样做是分别是为了提高内存和磁盘的利用率。</p>
 <p>&emsp;&emsp;试想一下，如果将磁盘空间分成N等份，每一份的大小(一个Block)是1M，如果想存储在磁盘上的文件是1K字节，那么其余的999字节便浪费了。所以需要更加细粒度的磁盘分割方式，可以将Block设置得小一点。</p>
 <p>&emsp;&emsp;linux一般页的大小是4KB，并把进程的地址空间按页分割，把常用的数据和代码页装载到内存中，不常用的代码和数据保存在磁盘中，以一个例子来说明，如下图：</p>
 <p><img src="%E5%88%86%E9%A1%B5%E6%9C%BA%E5%88%B6.png" alt="分页机制"></p>
@@ -933,18 +933,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/07/24/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E2%80%94%E2%80%94%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/">
+                <a href="/2021/07/25/%E5%AE%89%E5%8D%93%E2%80%94%E2%80%94%E6%9E%84%E5%BB%BAAndroidStudio%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83V4.2.2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="内存管理——内存映射">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="安卓——构建AndroidStudio应用开发环境">
                         
-                        <span class="card-title">内存管理——内存映射</span>
+                        <span class="card-title">安卓——构建AndroidStudio应用开发环境</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -954,31 +953,34 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-24
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-25
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" class="post-category">
-                                    内存管理
+                            <a href="/categories/%E5%AE%89%E5%8D%93/" class="post-category">
+                                    安卓
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/linux/">
-                        <span class="chip bg-color">linux</span>
+                    <a href="/tags/android/">
+                        <span class="chip bg-color">android</span>
                     </a>
                     
-                    <a href="/tags/mem/">
-                        <span class="chip bg-color">mem</span>
+                    <a href="/tags/env/">
+                        <span class="chip bg-color">env</span>
+                    </a>
+                    
+                    <a href="/tags/app/">
+                        <span class="chip bg-color">app</span>
                     </a>
                     
                 </div>

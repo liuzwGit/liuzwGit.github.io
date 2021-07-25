@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="内存管理——概念, Pokerface">
+    <meta name="keywords" content="安卓——构建AndroidStudio应用开发环境, Pokerface">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>内存管理——概念 | Pokerface</title>
+    <title>安卓——构建AndroidStudio应用开发环境 | Pokerface</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -417,12 +417,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">内存管理——概念</h1>
+                    <h1 class="description center-align post-title">安卓——构建AndroidStudio应用开发环境</h1>
                 </div>
             </div>
         </div>
@@ -538,12 +538,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/linux/">
-                                <span class="chip bg-color">linux</span>
+                            <a href="/tags/android/">
+                                <span class="chip bg-color">android</span>
                             </a>
                         
-                            <a href="/tags/mem/">
-                                <span class="chip bg-color">mem</span>
+                            <a href="/tags/env/">
+                                <span class="chip bg-color">env</span>
+                            </a>
+                        
+                            <a href="/tags/app/">
+                                <span class="chip bg-color">app</span>
                             </a>
                         
                     </div>
@@ -554,8 +558,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" class="post-category">
-                                内存管理
+                            <a href="/categories/%E5%AE%89%E5%8D%93/" class="post-category">
+                                安卓
                             </a>
                         
                     </div>
@@ -567,7 +571,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-07-24
+                    2021-07-25
                 </div>
                 
 
@@ -588,18 +592,13 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>&emsp;&emsp;在早期的计算机中，程序是直接运行在物理内存上的。即程序在运行的过程中访问的都是物理地址。如果这个系统只运行一个程序，那么只要这个程序所需的内存不要超过该机器的物理内存就不会出现问题。</p>
-<p>&emsp;&emsp;然而现在的系统都是支持多任务，多进程的，这样CPU以及其他硬件的利用率会更高，这个时候就要考虑到将系统内有限的物理内存如何及时有效的分配给多个程序了，这个事情本身就称之为<strong>内存管理</strong>。</p>
-<h2 id="1）早期计算机系统中内存分配管理"><a href="#1）早期计算机系统中内存分配管理" class="headerlink" title="1）早期计算机系统中内存分配管理"></a>1）早期计算机系统中内存分配管理</h2><p>&emsp;&emsp;假如有三个程序，程序A，B，C，程序A运行的过程中需要10M内存，程序B运行的过程中需要100M内存，而程序C运行的过程中需要20M内存。如果系统同时需要运行程序A和B，那么早期的内存管理过程大概是这样的。</p>
-<p>&emsp;&emsp;将物理内存的前10M分配给A，接下来的10M-110M分配给B。这种内存管理的方法比较直接，假设这个时候想让程序C也运行，同时假设系统的内存只有128M，显然按照这种方法程序C由于内存不够是不能够运行的。</p>
-<p>&emsp;&emsp;这个时候就需要虚拟内存技术 了，内存空间不够的时候可以将程序不需要用到的数据交换到磁盘空间上去，已达到扩展内存空间的目的。</p>
-<h2 id="2）内存管理中存在的问题"><a href="#2）内存管理中存在的问题" class="headerlink" title="2）内存管理中存在的问题"></a>2）内存管理中存在的问题</h2><h3 id="（1）进程地址空间不能隔离"><a href="#（1）进程地址空间不能隔离" class="headerlink" title="（1）进程地址空间不能隔离"></a>（1）进程地址空间不能隔离</h3><p>&emsp;&emsp;由于程序直接访问的是物理内存，这个时候程序所使用的内存空间不是隔离的。举个例子，就像上面说的A的地址空间是0-10M这个范围内，但是如果A中有一段代码是操作10M-128M这段地址空间内的数据，那么程序B和程序C就很可能会崩溃（每个程序都可以访问系统的整个地址空间）。这样很多恶意程序或者是木马程序可以轻而易举地破快其他的程序，系统的安全性也就得不到保障了，这对用户来说也是不能容忍的。</p>
-<h3 id="（2）内存使用的效率低"><a href="#（2）内存使用的效率低" class="headerlink" title="（2）内存使用的效率低"></a>（2）内存使用的效率低</h3><p>&emsp;&emsp;如果要让程序A、B、C同时运行，那么唯一的方法就是使用虚拟内存技术将一些程序暂时不用的数据写到磁盘上，在需要的时候再从磁盘读回内存。</p>
-<p>&emsp;&emsp;这里程序C要运行，将A交换到磁盘上去显然是不行的，因为程序是需要连续的地址空间的，程序C需要20M的内存，而A只有10M的空间，所以需要将程序B交换到磁盘上去，而B足足有100M，可以看到为了运行程序C我们需要将100M的数据从内存写到磁盘，然后在程序B需要运行的时候再从磁盘读到内存，而IO操作比较耗时，所以这个过程效率将会十分低下。</p>
-<h3 id="（3）程序运行的地址不能确定"><a href="#（3）程序运行的地址不能确定" class="headerlink" title="（3）程序运行的地址不能确定"></a>（3）程序运行的地址不能确定</h3><p>&emsp;&emsp;程序每次需要运行时，都需要在内存中分配一块足够大的空闲区域，而问题是这个空闲的位置是不能确定的，这会带来一些重定位的问题，重定位的问题确定就是程序中引用的变量和函数的地址。</p>
-<p>&emsp;&emsp;内存管理为了解决上面三个问题，引入了一个中间层，即程序和物理内存之间的****虚拟内存****。</p>
-<p>&emsp;&emsp;程序只能看见虚拟内存，再也不能直接访问物理内存。每个程序都有自己独立的进程地址空间，这样就做到了进程隔离。这里的进程地址空间是指虚拟地址。顾名思义，既然是虚拟地址，也就是虚的，不是现实存在的地址空间。</p>
-<p>&emsp;&emsp;既然程序和物理地址空间之间增加了虚拟地址，那么就要解决怎么从虚拟地址映射到物理地址，因为程序最终肯定是运行在物理内存中的，主要有分段和分页两种技术。</p>
+                <h1 id="1-下载"><a href="#1-下载" class="headerlink" title="1.下载"></a>1.下载</h1><p>&emsp;&emsp;地址：<a target="_blank" rel="noopener" href="https://developer.android.google.cn/studio/">Download Android Studio and SDK tools  | Android Developers (google.cn)</a></p>
+<p><img src="%E4%B8%8B%E8%BD%BD.png" alt="下载"></p>
+<h1 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h1><p>&emsp;&emsp;无脑下一步</p>
+<h1 id="3-汉化"><a href="#3-汉化" class="headerlink" title="3.汉化"></a>3.汉化</h1><h2 id="1）下载汉化包"><a href="#1）下载汉化包" class="headerlink" title="1）下载汉化包"></a>1）下载汉化包</h2><p>&emsp;&emsp;链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1iXGUug7yWTpQMgu7Ou9wKw">https://pan.baidu.com/s/1iXGUug7yWTpQMgu7Ou9wKw</a><br>&emsp;&emsp;提取码：ANCN</p>
+<h2 id="2）汉化"><a href="#2）汉化" class="headerlink" title="2）汉化"></a>2）汉化</h2><p>&emsp;&emsp;将AndroidStudio\lib\resources_en.jar通过压缩工具打开，并将汉化文件放入resources_en.jar\messages中</p>
+<p><img src="%E6%B1%89%E5%8C%96.png" alt="汉化"></p>
+<p><img src="%E4%B8%AD%E6%96%87%E6%95%88%E6%9E%9C.png" alt="中文效果"></p>
 
                 
             </div>
@@ -626,7 +625,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://liuzwGit.github.io/2021/07/24/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E2%80%94%E2%80%94%E6%A6%82%E5%BF%B5/">http://liuzwGit.github.io/2021/07/24/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E2%80%94%E2%80%94%E6%A6%82%E5%BF%B5/</a>
+                    <a href="http://liuzwGit.github.io/2021/07/25/%E5%AE%89%E5%8D%93%E2%80%94%E2%80%94%E6%9E%84%E5%BB%BAAndroidStudio%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83V4.2.2/">http://liuzwGit.github.io/2021/07/25/%E5%AE%89%E5%8D%93%E2%80%94%E2%80%94%E6%9E%84%E5%BB%BAAndroidStudio%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83V4.2.2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -664,12 +663,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/linux/">
-                                    <span class="chip bg-color">linux</span>
+                                <a href="/tags/android/">
+                                    <span class="chip bg-color">android</span>
                                 </a>
                             
-                                <a href="/tags/mem/">
-                                    <span class="chip bg-color">mem</span>
+                                <a href="/tags/env/">
+                                    <span class="chip bg-color">env</span>
+                                </a>
+                            
+                                <a href="/tags/app/">
+                                    <span class="chip bg-color">app</span>
                                 </a>
                             
                         </div>
@@ -839,17 +842,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/07/24/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E2%80%94%E2%80%94%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/">
+                <a href="/2021/07/25/%E5%AE%89%E5%8D%93%E2%80%94%E2%80%94%E6%9E%84%E5%BB%BAAndroidStudio%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83V4.2.2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="内存管理——内存映射">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="安卓——构建AndroidStudio应用开发环境">
                         
-                        <span class="card-title">内存管理——内存映射</span>
+                        <span class="card-title">安卓——构建AndroidStudio应用开发环境</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -859,30 +863,35 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" class="post-category">
-                                    内存管理
+                            <a href="/categories/%E5%AE%89%E5%8D%93/" class="post-category">
+                                    安卓
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/linux/">
-                        <span class="chip bg-color">linux</span>
+                    <a href="/tags/android/">
+                        <span class="chip bg-color">android</span>
                     </a>
                     
-                    <a href="/tags/mem/">
-                        <span class="chip bg-color">mem</span>
+                    <a href="/tags/env/">
+                        <span class="chip bg-color">env</span>
+                    </a>
+                    
+                    <a href="/tags/app/">
+                        <span class="chip bg-color">app</span>
                     </a>
                     
                 </div>
@@ -893,16 +902,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/07/24/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E2%80%94%E2%80%94%E6%A6%82%E5%BF%B5/">
+                <a href="/2021/07/24/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E2%80%94%E2%80%94%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="内存管理——概念">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="内存管理——内存映射">
                         
-                        <span class="card-title">内存管理——概念</span>
+                        <span class="card-title">内存管理——内存映射</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -927,7 +936,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
