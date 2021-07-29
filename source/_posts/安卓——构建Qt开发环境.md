@@ -27,3 +27,5 @@ tags: #标签
 ![Qt更新AndroidStudioSDK完成](Qt更新AndroidStudioSDK完成.png)
 
 &emsp;&emsp;自动下载更新后，Qt即可使用android开发环境。
+
+![安卓中运行QT程序](安卓中运行QT程序.png)
